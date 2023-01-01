@@ -1,0 +1,2 @@
+picoCTF{ur_4_w1z4rd_8F4B04AE}
+challenge -> wizardlike
