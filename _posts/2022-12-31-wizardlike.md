@@ -72,6 +72,6 @@ Voila!, the binary is patched, Now just run it, and find the flag by clearing th
 Here is the first part of flag:
 ![level 1](/assets/img/20230101/wizardLike/levels/level1.jpg)
 
-You can find the rest of the level images in the [images](/assets/img/20230101/wizardLike/levels/) folder.
+You can find the rest of the level images in the [images](https://github.com/0xk4n3ki/0xk4n3ki.github.io/tree/master/assets/img/20230101/wizardLike/levels) folder.
 
 > The flag is : **picoCTF{ur_4_w1z4rd_8F4B04AE}**
