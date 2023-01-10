@@ -1,0 +1,26 @@
+---
+title: Malware Static Analysis
+author: k4n3ki
+date: 2023-01-10 2:4:00 -500
+categories: [Malware, Rev]
+tags: [Tutorial]
+---
+
+# **Malware Static Analysis**
+
+## What is Malware Analysis?
+The purpose of malware analysis is usually to understand the purpose and behavior of suspicious binary or file.
+
+Goals of malware analysis will typically be:
+* to gather information to respond to the intrusion
+* to determine exactly what happened
+* to ensure that you've located all the infected files
+* what the binary can do, how to detect it, how to mesaure and contain its damge
+
+## Types of malware analysis
+![categoryImg](/categoryImg.png)
+
+**Static Analysis** involes examining the malware without running it.
+
+**Dynamic Analysis** involes running the malware and observe its behavior.
+
