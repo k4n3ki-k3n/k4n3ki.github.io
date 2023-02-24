@@ -7,9 +7,10 @@ I am <span style="color:pink">**k4n3ki**</span> a.k.a. Suraj Yadav. I am a 3rd y
 
 Other than malware samples i am trying to understand world.
 
+ \
+  \
+   \
+    \
 
-\ 
-\ 
-\
 Everything beside i love <span style="color:pink">Rize</span>.
 <img src="https://static.wikia.nocookie.net/tokyoghoul/images/3/36/Rize_anime_design_front_view.png/revision/latest/scale-to-width-down/300?cb=20140601194539">
