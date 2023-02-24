@@ -9,5 +9,5 @@ Other than malware samples i am trying to understand world.
 I like anime and travelling.
 
 
-Everything beside i love <span style="color:pink">Rize</span>. \
-<img src="https://images.wallpapersden.com/image/download/tokyo-ghoul-ken-kaneki-rize-kamishiro_a2dpbZSZmpqtpaSklGZuZ2WtZmdlZQ.jpg">
+Everything beside i love <span style="color:pink">Rize</span>.
+<img src="/assets/img/about/rize.jpg">
