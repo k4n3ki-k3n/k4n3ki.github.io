@@ -10,4 +10,4 @@ I like anime and travelling.
 
 
 Everything beside i love <span style="color:pink">Rize</span>. \
-<img src="assets/img/rize.webp">
+<img src="https://images.wallpapersden.com/image/download/tokyo-ghoul-ken-kaneki-rize-kamishiro_a2dpbZSZmpqtpaSklGZuZ2WtZmdlZQ.jpg">
