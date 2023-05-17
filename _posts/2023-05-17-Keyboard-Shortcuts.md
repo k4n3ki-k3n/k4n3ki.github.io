@@ -72,9 +72,10 @@ Tools covered :
 
 
 ## <span style="color:red;">IDA Pro</span>
+
 | Shortcut | Function |
 | -------- | -------- |
-| <span style="color:lightgreen;">**Navigation**</span>
+| <span style="color:lightgreen;">**Navigation**</span> |
 | Enter | Jump to operand 
 | G | Go to Address
 | Ctrl+P | Jump to function
@@ -82,7 +83,7 @@ Tools covered :
 | ESC | Jump to previous position
 | Ctrl+L | Jump by name
 | X | xref
-| <span style="color:lightgreen;">**Search**</span>
+| <span style="color:lightgreen;">**Search**</span> |
 | Alt+C | Next code
 | Alt+I | Immediate value
 | Alt+T | Text
@@ -91,22 +92,22 @@ Tools covered :
 | Ctrl+I | Next immediatevalue
 | Ctrl+T | Next text
 | Ctrl+B | Next sequence of bytes
-| <span style="color:lightgreen;">**Graphing**</span>
+| <span style="color:lightgreen;">**Graphing**</span> |
 | F12 | Flow Chart
 | Ctrl+F12 | Function calls
-| <span style="color:lightgreen;">**Subviews**</span>
+| <span style="color:lightgreen;">**Subviews**</span> |
 | Shift+F4 | Name
 | Shift+F12 | Strings
 | Shift+F3 | Functions
 | Shift+F7 | Segments
-| <span style="color:lightgreen;">**Debugger**</span>
+| <span style="color:lightgreen;">**Debugger**</span> |
 | F9 | Start
 | F7 | Step into
 | Ctrl+F7 | Run until return
 | Ctrl+F2 | Stop process
 | F8 | Step over
 | Ctrl+Alt+B | List Breakpoints
-| <span style="color:lightgreen;">**Other**</span>
+| <span style="color:lightgreen;">**Others**</span> |
 | C | Code
 | U | Undefine
 | Shift+; | Enter comment
@@ -120,7 +121,9 @@ Tools covered :
 | Y | Declare function type
 | Shift+F2 | Run script
 
+
 ## <span style="color:red;">Immunity Debugger</span>
+
 | Shortcut | Function |
 | -------- | -------- |
 | F9 | Run
@@ -136,10 +139,12 @@ Tools covered :
 | Alt+L | Open log window
 | ALt+O | Open option window
 
+
 ## <span style="color:red;">WinDbg</span>
+
 | Shortcut | Function |
 | -------- | -------- |
-| <span style="color:lightgreen;">**Flow Control**</span>
+| <span style="color:lightgreen;">**Flow Control**</span> |
 | F5 |	Continue
 | F10 |	Step over
 | F11 |	Step Into
@@ -150,18 +155,18 @@ Tools covered :
 | Ctrl+Shift+F5 |	Restart
 | Shift+F5 |	Stop debugging
 | Alt+H,D |	Detach
-| <span style="color:lightgreen;">**Setup**</span>
+| <span style="color:lightgreen;">**Setup**</span> |
 | F6 |	Attach to process
 | Ctrl+R |	Connect to remote
 | Ctrl+D |	Open dump file
 | Ctrl+K |	Attach to kernel debugger
 | Ctrl+E |	Launch process
 | Ctrl+P |	Launch app package
-| <span style="color:lightgreen;">**Breakpoints**</span>
+| <span style="color:lightgreen;">**Breakpoints**</span> |
 | F9 |	Toggle breakpoint on highlighted line
 | Ctrl+Alt+K |	Toggle initial break
 | Alt+B,A |	Add breakpoint
-| <span style="color:lightgreen;">**Windowing**</span>
+| <span style="color:lightgreen;">**Windowing**</span> |
 | Ctrl+Tab |	Open window changer
 | Ctrl+1 |	Open/focus on command window
 | Ctrl+2 |	Open/focus on watch window
@@ -172,7 +177,7 @@ Tools covered :
 | Ctrl+7 |	Open/focus on disassembly window
 | Ctrl+8 |	Open/focus on breakpoints window
 | Ctrl+9 |	Open/focus on thread window
-| <span style="color:lightgreen;">**Scripting**</span>
+| <span style="color:lightgreen;">**Scripting**</span> |
 | Ctrl+Shift+O |	Open script
 | Ctrl+Shift+Enter |	Execute script
 | Ctrl+S |	Save script
