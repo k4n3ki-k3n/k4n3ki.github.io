@@ -8,7 +8,7 @@ tags: [Writeup, Keylogger, Trojan]
 
 It is a Lab from Chapter 11(Malware Behavior) for practice from the book <span style="color:lightgreen">“Practical Malware Analysis”</span> written by <span style="color:lightgreen">Michael Sikorski</span> and <span style="color:lightgreen">Andrew Honig</span>.
 
-This lab shows a new technique it <span style="color:red">Trojanizes</span> windows service and starts <span style="color:red">Keylogging</span>
+This lab shows a new technique. It <span style="color:red">Trojanizes</span> windows service and starts <span style="color:red">Keylogging</span>
 
 Tools used:
 - Detect-it-Easy
