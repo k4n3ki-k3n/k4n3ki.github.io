@@ -13,6 +13,7 @@ Tools covered :
 - IDA Pro 
 - Immunity Debugger 
 - WinDbg 
+- x64Dbg
  
 ## <span style = "color:red;">OllyDbg</span> 
  
@@ -182,4 +183,50 @@ Tools covered :
 | Ctrl+Shift+Enter |	Execute script | 
 | Ctrl+S |	Save script | 
 | Alt+S,N |	New script | 
-| Alt+S,U |	Unlink script
+| Alt+S,U |	Unlink script|
+
+## <span style="color:red;">x64Dbg</span>
+
+| Shortcut | Function | 
+| -------- | -------- |
+| <span style="color:lightgreen;">General</span> |
+| F2 | Toggle breakpoints |
+| F3 | Search for text |
+| F7 | Step into |
+| F8 | Step over |
+| F9 | Run |
+| Ctrl+F2 | Run until selection |
+| Ctrl+F9 | Run until return |
+| Ctrl+Shift+F9 | Run until address |
+| Ctrl+Shift+F10 | Run until next call |
+| <span style="color:lightgreen;">Navigation</span> |
+| Ctrl+G | Go to address |
+| Ctrl+T | Toggle trace mode |
+| Ctrl+L | Set/unset log breakpoint |
+| Ctrl+Shift+L | Toggle log breakpoint condition |
+| Ctrl+M | Toggle memory breakpoint |
+| Ctrl+Shift+M | Toggle hardware breakpoint |
+| Ctrl+R | Rename label/comment |
+| Ctrl+Alt+I | Import database |
+| <span style="color:lightgreen;">Disassembly</span> |
+| Spacebar | Toggle breakpoint at the current line |
+| Shift+Enter | Go to expression |
+| F4 | Toggle software breakpoint |
+| F6 | Step into trace |
+| F10 | Step over trace |
+| F11 | Step into branch |
+| <span style="color:lightgreen;">Graph</span> |
+| Ctrl+D | Go to destination |
+| Ctrl+Shift+D | Go to origin |
+| Ctrl+B | Toggle breakpoints on current selection |
+| Ctrl+Shift+B | Toggle breakpoints on current graph |
+| Ctrl+Shift+E | Toggle graph edges |
+| Ctrl+Shift+F | Toggle graph flags |
+| Ctrl+Shift+H | Toggle graph highlighting |
+| Ctrl+Shift+N | Toggle graph numbers |
+| <span style="color:lightgreen;">Memory</span> |
+| Alt+M | Memory map |
+| Alt+B | Memory breakpoints |
+| Alt+D | Data breakpoints |
+| Alt+S | Search memory |
+| Alt+L | Log data |
