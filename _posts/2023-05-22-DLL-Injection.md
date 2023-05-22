@@ -17,8 +17,8 @@ Tools Used :
 
 First start with loading the executable in Detect-it-Easy for static analysis. We see the strings like "explorer.exe", "psapi.dll", "Lab12-01.dll" and more.
 
-<!-- <img src="exe_strings.png"> -->
-![img](/exe_strings.png)
+<img src="/assets/img/Lab12-01/exe_strings.png">
+<!-- ![img](/exe_strings.png) -->
 
 It contains imports like <span style="color:lightgreen">OpenProcess</span>, <span style="color:lightgreen">CreateRemoteThread</span>, <span style="color:lightgreen">VirtualAlloc</span>, <span style="color:lightgreen">WriteProcessMemory</span> which indicates for some kind of Process Injection.
 
@@ -26,23 +26,23 @@ Upon loading the DLL into Detect-it-Easy, we see that it contains some suspiciou
 
 During Dynamic Analysis, When we run the executable it pop up a message box every minute. There isn't any information in ProcMon, what it does and how it is doing it. Every time the number in the title of MessageBox increases.
 
-<!-- <img src="messageBox_ss.png"> -->
-![img](/messageBox_ss.png)
+<img src="/assets/img/Lab12-01/messageBox_ss.png">
+<!-- ![img](/messageBox_ss.png) -->
 
 Taking look in Process Explorer, we can see that the DLL has been loaded into the process explorer.exe.
 
-<!-- <img src=""> -->
-![img](/procExp.png)
+<img src="/assets/img/Lab12-01/procExp.png">
+<!-- ![img](/procExp.png) -->
 
 To know the inner working of the malware, let's load the executable in IDA Pro. Lets start with the main function. It simply loads the psapi.dll via LoadLibraryA and retrieves the addresses of functions <span style="color:lightgreen">EnumProcessModules</span>, <span style="color:lightgreen">EnumProcesses</span> via GetProcAddress.
 
-<!-- <img src="main.png"> -->
-![img](/main.png)
+<img src="/assets/img/Lab12-01/main.png">
+<!-- ![img](/main.png) -->
 
 After that it retrieves the path of current directory and concatenate it with strings "\" and "Lab12-01.dll". Next it gets the list of PId's list of all the processes on the system through EnumProcesses. It iterates over the every element of the list and passes it to the function sub_401000.
 
-<!-- <img src="comp_func.png"> -->
-![img](/comp_func.png)
+<img src="/assets/img/Lab12-01/comp_func.png">
+<!-- ![img](/comp_func.png) -->
 
 Function <span style="color:lightgreen">sub_401000</span> opens the process and and gets its module base name through GetModuleBaseNameA and compares it to "explorer.exe". If it matches then return 1 otherwise returns 0.
 
