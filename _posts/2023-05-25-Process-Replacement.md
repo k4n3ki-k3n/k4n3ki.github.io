@@ -95,26 +95,26 @@ In <span style="color:lightgreen">sub_4010C7</span>, it creates a file named "<s
 
 ## <span style="color:red">Lab12-02 Question & Answers</span>
 
-> Question 1: What is the purpose of this program? </br>
+> Question 1: What is the purpose of this program?
 > Answer : Purpose of this program is to launch an keylogger.
 
-> Question 2: How does the launcher program hide execution? </br>
+> Question 2: How does the launcher program hide execution?
 > Answer : The program performs process replacement on svchost.exe.
 
-> Question 3: Where is the malicious payload stored? </br>
+> Question 3: Where is the malicious payload stored?
 > Answer : The malicious payload is stored in the resource section of the executable and has type "UNICODE" and named "LOCALIZATION".
 
-> Question 4: How is the malicious payload protected? </br>
+> Question 4: How is the malicious payload protected?
 > Answer : The malicious payload is XOR-encoded to 0x41 in resource section.
 
 
 ## <span style="color:red">Lab12-03 Question & Answer</span>
 
-> Question 1: What is the purpose of this malicious payload? </br>
+> Question 1: What is the purpose of this malicious payload?
 > Answer : The purpose of malicious payload is to log the keystrokes and the active window title text.
 
-> Question 2: How does the malicious payload inject itself? </br>
+> Question 2: How does the malicious payload inject itself?
 > Answer : The malicious payload uses hook injection.
 
-> Question 3: What filesystem residue does this program create? </br>
+> Question 3: What filesystem residue does this program create?
 > Answer : It creates a practicalmalwareanalysis.log file in the same directory of Lab12-02.exe.
