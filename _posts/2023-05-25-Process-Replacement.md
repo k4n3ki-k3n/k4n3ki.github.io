@@ -71,7 +71,7 @@ Now, we can move to Advanced dynamic analysis to dump the decoded resource secti
 
 <img src="/assets/img/Lab12-02/dump.png">
 
-## <span style="color:red">Keylooger Analysis</span>
+## <span style="color:red">Keylogger Analysis</span>
 
 When we load the saved binary to Detect It Easy, we can see that it is a PE32 file. In strings section, we can see the same strings that we saw in the memory of svchost.exe during dynamic analysis.
 
