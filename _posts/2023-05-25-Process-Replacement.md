@@ -93,7 +93,7 @@ In <span style="color:lightgreen">sub_4010C7</span>, it creates a file named "<s
 
 <img src="/assets/img/Lab12-02/keylog_func.png">
 
-## Lab12-02 Question & Answers
+## <span style="color:red">Lab12-02 Question & Answers</span>
 
 > Question 1: What is the purpose of this program? </br>
 > Answer : Purpose of this program is to launch an keylogger.
@@ -108,7 +108,7 @@ In <span style="color:lightgreen">sub_4010C7</span>, it creates a file named "<s
 > Answer : The malicious payload is XOR-encoded to 0x41 in resource section.
 
 
-## Lab12-03 Question & Answer
+## <span style="color:red">Lab12-03 Question & Answer</span>
 
 > Question 1: What is the purpose of this malicious payload? </br>
 > Answer : The purpose of malicious payload is to log the keystrokes and the active window title text.
