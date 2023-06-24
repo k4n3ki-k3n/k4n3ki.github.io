@@ -19,7 +19,7 @@ Tool used :
 
 Let's first start with static analysis by opening the exe in DiE. There are some suspicious strings like "<span style="color:lightgreen">Mozilla/4.0</span>" and "<span style="color:lightgreen">http[:]//%s/%s/</span>". It also contains a resource of lpName 0x65 and lpType 0xa.
 
-<img src="resource.png">
+<img src="/assets/img/lab-13/resource.png">
 
 It imports some functions from WS2_32.dll using Ordinal.
 
@@ -33,7 +33,7 @@ It also imports [InternetOpenA, InternetOpenUrlA, InternetCloseHandle, InternetR
 
 During basic Dynamic analysis, we can see that it tries to connect to the URL "<span style="color:lightgreen">http[:]//www[.]practicalmalwareanalysis[.]com/Z3J1ZGdl</span>".
 
-<img src="fakenetTraffic.png">
+<img src="/assets/img/lab-13/fakenetTraffic.png">
 
 For further analysis, let's open it in IDA Pro. In main function, it calls sub_401300, in which it retrieves handle to the exe and the pointer to the resource with the help of imports. If it fails to get the handle to the exe then it prints "Could not load exe.".
 
@@ -41,15 +41,15 @@ For further analysis, let's open it in IDA Pro. In main function, it calls sub_4
 
 It passes the pointer and the size of resource to the function sub_401190. In sub_401190, it iterates over every byte of the resource and xor it with <span style="color:lightgreen">0x3B</span>.
 
-<img src="xorDecode.png">
+<img src="/assets/img/lab-13/xorDecode.png">
 
 Back in main function it calls WSAStartup which initiates use of the Winsock DLL by a process. If successful, it calls sub_4011C9 with decoded resource as argument. 
 
 In sub_4011C9, it calls <span style="color:lightgreen">gethostname</span>. It copies the first 12 char of host name into Destination and passes it to function sub_4010B1 which just returns it after <span style="color:lightgreen">Base64</span> decoding. 
 
-<img src="gethostname.png">
+<img src="/assets/img/lab-13/gethostname.png">
 
-<img src="grudgebase64.png">
+<img src="/assets/img/lab-13/grudgebase64.png">
 
 We can see the string "<span style="color:lightgreen">Z3J1ZGd1</span>" which appeared in fakenet. Then it formats the URL and calls the imports to connect to internet.
 
@@ -70,14 +70,14 @@ If false, it runs the while loop again after a sleep call of 0x7530 milliseconds
 
 > Question 2: Use IDA Pro to look potential encoding by searching for the string xor. What type of encoding do you find?
 <br/> Answer: There appear to be 18 results of xor text search in IDA Pro. Out of which 15 are zeroing xor instructions. And out of 3, 2 are from library code. The last one seems to be xoring eax with 0x3B in a loop in sub_401190.
-<br/> <img src="xorSearch.png">
+<br/> <img src="/assets/img/lab-13/xorSearch.png">
 
 > Question 3: What is the key used for encoding and what content does it encode?
 <br/> Answer: The XOR-encoding uses 0x3B as key and it seems to be encoding the resource section of the executable.
 
 > Question 4: Use the static tools FindCrypt2, Krypto ANALyzer(KANAL), and the IDA Entropy Plugin to idenity any other encoding mechanisms. What do you find?
 <br/> Answer: PEiD KANAL plugin detect base64 encoding.
-<br/> <img src="kanal.png">
+<br/> <img src="/assets/img/lab-13/kanal.png">
 
 > Question 5: What type of encoding is used for a portion of the network traffic sent by the malware?
 <br/> Answer: Base64 encoding is used to create the GET request string.
@@ -110,7 +110,7 @@ For Basic static analysis, Let's open it in DiE. It contains only one interestin
 
 Moving on to Basic Dynamic Analysis, We run the executable and files start appearing in the same directory as the executable. Name of these files is starting with "temp" and ending with random chars and all of them are of <span style="color:lightgreen">6.98MB</span> in size. Data of these files is unreadable, may be they encrypted.
 
-<img src="tempss.png">
+<img src="/assets/img/lab-13/tempss.png">
 
 Let's move to Advanced Static analysis, Open it in IDA Pro. Main function runs a infinte while loop in which it sleeps for 0x1388 milliseconds and calls sub_401851 and again sleeps for 0x1388 milliseconds before next iteration.
 
@@ -133,7 +133,7 @@ DeleteObject
 
 After screenshot taking function, sub_401851 calls another function sub_40181F with the same arguments as sub_401070. sub_40181F calls sub_401739 which contains a lot of SHR and LHR in addition to XOR instructions. It seems to be <span style="color:lightgreen">encrypting</span> the screenshot taken by the previous function.
 
-<img src="elsemain.png">
+<img src="/assets/img/lab-13/elsemain.png">
 
 After encryption functions, sub_401851 calls <span style="color:lightgreen">GetTickCount</span> to retrieve the number of seconds passes till now into TickCount variable. Then it create a strings named Buffer equal to "temp" + TickCount. then it calls sub_401000 with hmem, nNumberOfBytesToWrite, Buffer as arguments. sub_401000 just create the file of the name temp and write the encrypted data to it.
 
@@ -141,7 +141,7 @@ You can decode the content using two ways:
 
 1st: Open the malware into x32dbg and put a breakpoint on 0x401880. Follow the first address on the stack and dump it from the memory.
 
-<img src="bmpDump.png">
+<img src="/assets/img/lab-13/bmpDump.png">
 
 2nd: Open any file produced by the malware in hex editor and copy its hex data. Open the malware into x32dbg and put a breakpoint on 0x401880. Replace the data with the copied hex data from the hex editor. And continue the execution, it will decrypt the content and give it a bmp extension. 
 
@@ -152,7 +152,7 @@ You can decode the content using two ways:
 
 > Question 2: Use static techniques such as an xor search, FindCrypt2, KANAL, and the IDA Entropy Plugin to look for potential encoding. What do you find?
 <br/> Answer: XOR search result give potential encoding instructions in  functions sub_401739 and sub_401570.
-<br/> <img src="xorSearch2.png">
+<br/> <img src="/assets/img/lab-13/xorSearch2.png">
 
 > Question 3: Based on your answer to question 1, which imported function would be a good prospect for finding the encoding functions?
 </br> Answer: It must be encrypting the content before creating(CreateFile) and writing(WriteFile) to a file.
