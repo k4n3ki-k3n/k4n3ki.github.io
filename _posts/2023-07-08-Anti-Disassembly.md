@@ -20,15 +20,15 @@ We don't get any information after opening it Detect-it-Easy. As it only imports
 
 So, let's open it in IDA Pro. When we try see the string "<span style="color:lightgreen">Good Job!</span>", we don't see any cross-refernce to it.
 
-<img src="1stringref.png">
+<img src="/assets/img/lab15/1stringref.png">
 
 In IDA, we are unable to decompile the main function. We some red marked hex numbers with call instruction. One line above these instructions, we can see jz instructions that are jumping into the middle of these call instructions. Above that we can see the the anti disassembly technique that uses "<span style="color:lightgreen">A jump instruction with a constant condition</span>", i.e.: "<span style="color:lightgreen">xor eax, eax</span>". So the jump will always be taken as the zero flag will be set always after the xor instruction.
 
-<img src="1ida.png">
+<img src="/assets/img/lab15/1ida.png">
 
 But the jump destination is not disassembled due to fake call instruction. To alter the disassembly to show the jump destination, <span style="color:red">press D</span> on the call instruction to convert it into data.
 
-<img src="1D.png">
+<img src="/assets/img/lab15/1D.png">
 
 Then <span style="color:red">press C</span> on the 8B hex byte to convert it into code.
 
@@ -36,11 +36,11 @@ Then <span style="color:red">press C</span> on the 8B hex byte to convert it int
 
 Follow the same procedure to modify the instructions. This same technique is used at 4 locations in this executable, i.e. 0x401010, 0x401023, 0x40104B, 0x401062.
 
-<img src="1idaEdit.png">
+<img src="/assets/img/lab15/1idaEdit.png">
 
 Select all the instructions from the address 0x401000 to 0x401077 and <span style="color:red">press P</span> to turn this code into a function. After this step we can decompile the main function.
 
-<img src="1main.png">
+<img src="/assets/img/lab15/1main.png">
 
 Where we can see that it first checks for an argument and then it check whether it is "pdq" or not. If it is, it will print "Good Job!" otherwise it prints "<span style="color:lightgreen">Son, I am Disappoint.</span>".
 
@@ -73,51 +73,51 @@ First let's open the executable in Detect-it-Easy. It contains some strings("Bam
 'imp_ordinal_74' : 'imp_WSARemoveServiceClass'
 ```
 
-<img src="2imports.png">
+<img src="/assets/img/lab15/2imports.png">
 
 For further analysis, open it in IDA Pro. While scrolling through the main function disassembly, we encounter the first technique used by the malware after which IDA Pro couldn't disassemble the hex data. 
 
-<img src="2first.png">
+<img src="/assets/img/lab15/2first.png">
 
 At 0x0040115A, we can see "<span style="color:lightgreen">test esp, esp</span>" instruction and after which there is a jnz instruction. It is working as a fake condition as ESP is always non-zero. The target for the jnz instruction is loc_40115E+1 which lies between a 5-byte jmp instruction at 0x0040115E.
 
 Convert the instruction at 0x0040115E into data by pressing D.
 
-<img src="2firstD.png">
+<img src="/assets/img/lab15/2firstD.png">
 
 Then press C on 0x0040115F to convert it into code.
 
-<img src="2firstC.png">
+<img src="/assets/img/lab15/2firstC.png">
 
 Scrolling down, we again encounter an countermeasure at 0x004011D2 which is xoring eax to eax. It can also be corrected using the same technique as above.
 
 Again at 0x00401215, there is a jmp instruction whose target is the second byte of itself. 
 
-<img src="2second.png">
+<img src="/assets/img/lab15/2second.png">
 
 It can be corrected by converting it into data, then press C on 0x00401216 to turn it into code.
 
 > To force IDA Pro to produce a clean graph, you can turn 0xEB into a nop byte. Edit -> Patch program -> change byte... . After changing the byte press C to convert it into code.
 
-<img src="2secondC.png">
+<img src="/assets/img/lab15/2secondC.png">
 
 Down in main function, we again encounter an countermeasure at 0x40126D which can be corrected same as above. But at 0x4012EC, we see that it tries to jz in between of the mov instruction at 0x4012E6. 
 
-<img src="2third.png">
+<img src="/assets/img/lab15/2third.png">
 
 To correct it, convert the instructions into data and convert the instructions into code from 0x4012E8.
 
-<img src="2thirdC.png">
+<img src="/assets/img/lab15/2thirdC.png">
 
 After it, convert all the db bytes into nop instructions. This will allow us to create a proper function. After all this, now we can view the main function in graph mode or decompile it view pseudocode.
 
 Now, let's analyze the main function. First it retrieves the host name for the computer and increases its ascii value by 1. for example: z to a, b to c, 2 to 3, etc.
 
-<img src="2main.png">
+<img src="/assets/img/lab15/2main.png">
 
 Then it passes the modified name as first parameter to <span style="color:lightgreen">InternetOpenA</span>. Then it calls a function sub_401386, which just creates a string and duplicates it. 
 
-<img src="2urlstring.png">
+<img src="/assets/img/lab15/2urlstring.png">
 
 Then it calls <span style="color:lightgreen">InternetOpenUrlA</span> with the string returned by the function. Then it reads the file from the URL in the Buffer. It gets the pointer to the first occurence of "<span style="color:lightgreen">Bamboo::</span>" in the content read from the URL. If not present, it return 0. If present then it searches another occurence of "::". Then it replaces second occurence of "::" with NULL. Then it calls another function sub_40130F, which duplicates another string, i.e: "<span style="color:lightgreen">Account Summary.xls.exe</span>" and stores it into FileName. 
 
@@ -149,17 +149,17 @@ Answer: It extracts a URL from the page that was between "Bamboo::" and "::". Th
 
 Open the malware in Detect-it-Easy. After looking the strings, it seems to be some kind of process-listing tool.
 
-<img src="3strings.png">
+<img src="/assets/img/lab15/3strings.png">
 
 Among the imports, there are two functions that are not related to processes, i.e. <span style="color:lightgreen">WinExec</span> and <span style="color:lightgreen">URLDownloadToFileA</span>.
 
 For further analysis, load the file into IDA Pro. In main function, we see that it first builds an address 0x40148C via ORing 0x400000 and 0x148C and stores it in <span style="color:lightgreen">[ebp+4]</span> which stores the <span style="color:lightgreen">return address</span>.
 
-<img src="3oraddress.png">
+<img src="/assets/img/lab15/3oraddress.png">
 
 IDA Pro didn't identified 0x40148C as function and remained as just orphaned code.
 
-<img src="3first.png">
+<img src="/assets/img/lab15/3first.png">
 
 Above we can see the first anti-disassembly technique at 0x401494 in form of <span style="color:lightgreen">fake conditional</span>. As it always take the jump whose target is the second byte of the instruction at 0x401496. Press D on it to convert it into data and then press C on 0x401497 to convert back to code. 
 
@@ -169,11 +169,11 @@ At 0x4014D7, it tries to jump on the second byte of its own instruction. Press D
 
 Scrolling down, i saw calls to sub_401534 with an argument of character stream(unk_403010 and unk_403040). The data in these memory locations didn't appear to be ASCII text. At 0x401510, these same locations are passed to URLDownloadToFileA. 
 
-<img src="3urldownload.png">
+<img src="/assets/img/lab15/3urldownload.png">
 
 Going through the function sub_401534, it seems that it just XORs every byte with 0xFF. Writing a script in python to see the decoded data:
 
-<img src="3xorpython.png">
+<img src="/assets/img/lab15/3xorpython.png">
 
 We can see that it is passing a filename(<span style="color:lightgreen">spoolsrv.exe</span>) and url(<span style="color:lightgreen">http[:]//www[.]practicalmalwaranalysis[.]co/tt.html</span>) to the URLDownloadToFileA. 
 
