@@ -1,7 +1,7 @@
 ---
 title : Anti-Debugging(Chapter 16)
 author : k4n3ki
-date : 2023-07-11 1:00:00 -500
+date : 2023-07-11 00:00:23 -500
 categories: [Practical Malware Analysis]
 tags: [Anti-Debugging, Windows Internals]
 ---
