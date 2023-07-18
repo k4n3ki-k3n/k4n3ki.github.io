@@ -85,7 +85,7 @@ In DiE, we can see that is is packed by <span style="color:lightgreen">PECompact
 
 IDA Pro gave warning while opening the malware in it.
 
-<img src="3idawarning.png">
+<img src="/assets/img/lab18/3idawarning.png">
 
 IDA only identified two functions which doesn't give much insight about the tail jump and packing stub.
 
@@ -93,7 +93,7 @@ IDA only identified two functions which doesn't give much insight about the tail
 
 SO, let's load the binary in x64dbg where it stops the execution at system breakpoint at 0x76F41C33 in ntdll region. It also sets one time breakpoint at 0x405130. **Set a read breakpoint on the stack** approach, we see a pushad instruction at 0x405139.
 
-<img src="3pushad.png">
+<img src="/assets/img/lab18/3pushad.png">
 
 To set a read breakpoint on the stack, left click on the esp when eip reaches 0x40513A. Choose **Breakpoint -> Hardware, Access -> Dword**. After resuming the execution, debugger hit the breakpoint at 0x40754F on popfd instruction. Under which we see that it pushes an address to stack and return to it.
 
