@@ -18,7 +18,7 @@ Tools used:
 > Your goal for the labs in this chapter is simply to unpack the code for further analysis. For each lab, you should try to unpack the code so that other static analysis techniques can be used. While you may be able to find an automated unpacker that will work with some of these labs, automated unpackers won’t help you learn the skills you need when you encounter custom packers. Also, once you master unpacking, you may be able to manually unpack a file in less time than it takes to find, download, and use an automated unpacker.
 <br/> Each lab is a packed version of a lab from a previous chapter. Your task in each case is to unpack the lab and identify the chapter in which it appeared. The files are Lab18-01.exe through Lab18-05.exe.
 
-# <span style="color:red">Lab 18-01</span>
+## <span style="color:red">Lab 18-01</span>
 
 After opening the executable in DiE, we can see that it detected that it is packed by modified <span style="color:lightgreen">UPX</span>.
 
@@ -50,7 +50,7 @@ By using the x32dbg plugin <span style="color:lightgreen">Scylla</span>, we can 
 
 After going through the unpacked binary, we identified that this is the sample executable from Lab14-01.
 
-# <span style="color:red">Lab 18-02</span>
+## <span style="color:red">Lab 18-02</span>
 
 DiE detected that it is packed by <span style="color:lightgreen">FSG(1.0)</span>. It don't contain any strings and only 2 imports(GetProcAddress, LoadLibraryA).
 
@@ -77,7 +77,7 @@ You can dump the unpacked malware using **Plugins -> OllyDump -> Dump Debugged P
 Now, we can see all kind of information(imports, strings) in this unpacked malware. Going through this malware reveals that it is the same executable as Lab07-2.exe.
 
 
-# <span style="color:red">Lab 18-03</span>
+## <span style="color:red">Lab 18-03</span>
 
 In DiE, we can see that is is packed by <span style="color:lightgreen">PECompact(1.68-1.84)</span>. It contains a few strings and imports.
 
@@ -106,7 +106,7 @@ We have found the tail jump and following which we reached the unpacked entrypoi
 After going through the unpacked malware, we recognise that it is the same sample from Lab09-02.
 
 
-# <span style="color:red">Lab 18-04</span>
+## <span style="color:red">Lab 18-04</span>
 
 DiE detected that this binary is packed by <span style="color:lightgreen">ASPack(2.12-2.42)</span> packer. We can see that it contains three imports from kernel32.dll and one import from other DLLs.
 
@@ -128,7 +128,7 @@ Resuming the execution, it break at 0x4113B0, where it push the address 0x403896
 
 Going through the malware, we can see that it the same sample as Lab09-01.exe.
 
-# <span style="color:red">Lab 18-05</span>
+## <span style="color:red">Lab 18-05</span>
 
 Die detected that this malware is packed by <span style="color:lightgreen">(Win)Upack(0.39 final)</span>. It doesn't contain any strings and imports.
 
