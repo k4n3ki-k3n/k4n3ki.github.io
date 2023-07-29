@@ -23,7 +23,7 @@ Its lightning-fast spread affected an estimated <span style="color:lightgreen">4
 You can download the Sample from [VirusShare](https://virusshare.com/file?aa54181c8592c0fc9a110bc22c7685cdf2052e9eaedf2632c35214e7516d8266) and view the Virustotal report from [here](https://www.virustotal.com/gui/file/aa54181c8592c0fc9a110bc22c7685cdf2052e9eaedf2632c35214e7516d8266/detection). On Virustotal, out of 46, 41 vendors reported it malicious.
 
 
-You can see the script running and its effect in the below video:
+You can see the script running and its effect in the below video, click on the picture to move to youtube.
 
 [![utube video](https://img.youtube.com/vi/ZqkFfF5kAvw/hqdefault.jpg)](https://www.youtube.com/watch?v=ZqkFfF5kAvw)
 
