@@ -2,8 +2,8 @@
 title : iloveyou Virus
 author : k4n3ki
 date : 2023-07-29 1:00:00 -500
-categories: [Practical Malware Analysis]
-tags: [VBSscript, Social Engineering]
+categories: [VBScript]
+tags: [e-mail, Social Engineering]
 ---
 
 ## <span style="color:red">ILOVEYOU Virus</span>
