@@ -25,7 +25,9 @@ Here's a detailed explanation of how the Heaven's Gate technique works and how i
 
 ## <span style="color:red">The CS Register:</span>
 - In x86 architecture, the CS (Code Segment) register holds the segment selector for the code segment. It plays a crucial role in determining the current execution mode of the processor.
+  
 > cs register value: for x86 : 0x23, x64 : 0x33
+
 - The CS register contains information about the current privilege level (Ring 0 for kernel mode and Ring 3 for user mode) and the code segment's base address.
 
 ## <span style="color:red">Heaven's Gate Technique:</span>
@@ -34,9 +36,11 @@ Here's a detailed explanation of how the Heaven's Gate technique works and how i
 
 ## <span style="color:red">Context Switch:</span>
 - The Windows kernel handles the transition between modes. It saves the state of the 32-bit execution environment, including the CS register, before switching to 64-bit mode.
+  
 > It uses push and far ret instructions for this purpose.
 
 > When executing a far return, the processor pops the return instruction pointer from the top of the stack into the EIP register, then pops the segment selector from the top of the stack into the CS register.
+
 - In 64-bit mode, the code within the Windows kernel or the target 64-bit function is executed.
 - After completing the 64-bit operation, another context switch is performed to return to the 32-bit mode, restoring the saved state, including the original value of the CS register.
 
