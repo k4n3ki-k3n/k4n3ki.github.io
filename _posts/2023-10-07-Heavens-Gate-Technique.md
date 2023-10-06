@@ -1,5 +1,5 @@
 ---
-title : Heaven's Technique
+title : Heavens Gate Technique
 author : k4n3ki
 date : 2023-10-07 1:00:00 -500
 categories: [Malware Analysis]
