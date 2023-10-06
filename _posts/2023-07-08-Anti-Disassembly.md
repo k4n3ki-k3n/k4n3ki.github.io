@@ -1,7 +1,7 @@
 ---
 title : Anti-Disassembly(Chapter 15)
 author : k4n3ki
-date : 2023-07-08 1:00:00 -500
+date : 2023-07-08 1:00:00 +05:30
 categories: [Practical Malware Analysis]
 tags: [Anti-Reversing, Assembly]
 ---
