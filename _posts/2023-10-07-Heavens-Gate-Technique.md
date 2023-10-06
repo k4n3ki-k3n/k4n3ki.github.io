@@ -1,7 +1,7 @@
 ---
 title : Heaven's Gate Technique
 author : k4n3ki
-date : 2023-10-07 1:00:00 -500
+date : 2023-10-07 00:07:00 -500
 categories: [Malware Analysis]
 tags: [Malware Analysis, Reverse Engineering, Windows Internals]
 ---
