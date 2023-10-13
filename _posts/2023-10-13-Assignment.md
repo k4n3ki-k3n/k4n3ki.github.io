@@ -352,6 +352,8 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 |                        | Software Discovery T1518             |         
 |                        | System Information Discovery T1082   |         
 |                        | System Owner/User Discovery T1033    |
+| PERSISTENCE            | Registry Run Keys T1547              |
+| COMMAND AND CONTROL    | Non-Standard Port T1571              |
 
 ## <span style="color:red">network indicators</span>
 - 162.245.191.217
