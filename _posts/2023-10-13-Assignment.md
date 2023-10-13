@@ -340,6 +340,10 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 
 # <span style="color:red">Conclusion</span>
 
+Most of the functionalities of this malware match those of <span style="color:red">Crimson RAT</span>. We can observe the similarities in the following blog.
+
+- https://community.fortinet.com/t5/FortiEDR/Threat-Coverage-How-FortiEDR-protects-against-CrimsonRAT/ta-p/215398
+
 ## <span style="color:red">MITRE ATT&CK Tactic and Technique</span>
 
 | ATT&CK Tactic          |      ATT&CK Techniqe                 |
@@ -359,3 +363,4 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 - 162.245.191.217
 - 210.115.211.107
 - ports : [9149, 15198, 17818, 27781, 29224]
+
