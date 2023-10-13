@@ -8,7 +8,7 @@ tags: [Pinaca labs]
 
 
 # Content
-- [IOCs](#info)
+- [IOCs](#iocs)
 - [Static Anaylsis](#static-anaylsis)
     - [Virustotal report](#virustotal-report)
     - [File Metadata](#file-metadata)
