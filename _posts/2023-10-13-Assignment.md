@@ -1,7 +1,7 @@
 ---
 title : Assignment
 author : k4n3ki
-date : 2023-10-13 1:00:00 -500
+date : 2023-10-13 00:07:00 +530
 categories: [Malware Analysis]
 tags: [Pinaca labs]
 ---
