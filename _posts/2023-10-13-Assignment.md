@@ -338,9 +338,9 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 
 <span style="color:lightgreen">accouQinfos</span> return the computer name, username and the malware's directory.
 
-## <span style="color:red">Conclusion</span>
+# <span style="color:red">Conclusion</span>
 
-### <span style="color:red">MITRE ATT&CK Tactic and Technique</span>
+## <span style="color:red">MITRE ATT&CK Tactic and Technique</span>
 
 | ATT&CK Tactic          |      ATT&CK Techniqe                 |
 | ---------------------- | ----------------------------         |
@@ -353,7 +353,7 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 |                        | System Information Discovery T1082   |         
 |                        | System Owner/User Discovery T1033    |
 
-### <span style="color:red">network indicators</span>
+## <span style="color:red">network indicators</span>
 - 162.245.191.217
 - 210.115.211.107
 - ports : [9149, 15198, 17818, 27781, 29224]
