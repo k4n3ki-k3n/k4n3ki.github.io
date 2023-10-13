@@ -13,7 +13,6 @@ tags: [Pinaca labs]
     - [Virustotal report](#virustotal-report)
     - [File Metadata](#file-metadata)
     - [Capa](#capa)
-        - [MITRE ATT&CK Tactic and Technique](#mitre-attck-tactic-and-technique)
 - [Advanced Static & Dynamic Anaylsis](#advanced-static--dynamic-anaylsis)
     - [DnSpy](#dnspy)
     - [Localhost mapping](#localhost-mapping)
@@ -32,6 +31,9 @@ tags: [Pinaca labs]
         - [Read File](#read-file)
         - [Get list of Sub-Directories](#get-list-of-sub-directories)
         - [host Info](#host-info)
+- [Conclusion](#conclusion)
+    - [MITRE ATT&CK Tactic and Technique](#mitre-attck-tactic-and-technique)
+    - [network indicators](#network-indicators)
 
 
 # <span style="color:red">IOCs</span>
@@ -66,19 +68,6 @@ Furthermore, DiE reported that the .text section is also packed, as its entropy 
  Next, I used <span style="color:lightgreen">Capa</span> to identify its capabilities. The following capabilities were identified, and we will explore them during the debugging process.
 
 <img src="/assets/img/assignment/capa.jpg">
-
-### <span style="color:red">MITRE ATT&CK Tactic and Technique</span>
-
-| ATT&CK Tactic          |      ATT&CK Techniqe                 |
-| ---------------------- | ----------------------------         |
-| COLLECTION             | Screen Capture T1113                 |         
-| DISCOVERY              | Account Discovery T1087              |         
-|                        | File and Directory Discovery T1083   |         
-|                        | Process Discovery T1057              |         
-|                        | Query Registry T1012                 |         
-|                        | Software Discovery T1518             |         
-|                        | System Information Discovery T1082   |         
-|                        | System Owner/User Discovery T1033    |
 
 
 # <span style="color:red">Advanced Static & Dynamic Anaylsis</span>
@@ -348,3 +337,23 @@ The '<span style="color:lightgreen">downQdata</span>' function reads file data f
 <img src="/assets/img/assignment/userinfo.jpg">
 
 <span style="color:lightgreen">accouQinfos</span> return the computer name, username and the malware's directory.
+
+## <span style="color:red">Conclusion</span>
+
+### <span style="color:red">MITRE ATT&CK Tactic and Technique</span>
+
+| ATT&CK Tactic          |      ATT&CK Techniqe                 |
+| ---------------------- | ----------------------------         |
+| COLLECTION             | Screen Capture T1113                 |         
+| DISCOVERY              | Account Discovery T1087              |         
+|                        | File and Directory Discovery T1083   |         
+|                        | Process Discovery T1057              |         
+|                        | Query Registry T1012                 |         
+|                        | Software Discovery T1518             |         
+|                        | System Information Discovery T1082   |         
+|                        | System Owner/User Discovery T1033    |
+
+### <span style="color:red">network indicators</span>
+- 162.245.191.217
+- 210.115.211.107
+- ports : [9149, 15198, 17818, 27781, 29224]
