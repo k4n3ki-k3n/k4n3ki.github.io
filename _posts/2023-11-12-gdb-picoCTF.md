@@ -155,7 +155,7 @@ else:
 
 <span style="color:lightgreen">AUTHOR:</span> MADSTACKS
 
-Yay reversing! Relevant files: [otp](./otp) [flag.txt](/assets/img/gdb_picoCTF/flag.txt)
+Yay reversing! Relevant files: [otp](/assets/img/gdb_picoCTF/otp) [flag.txt](/assets/img/gdb_picoCTF/flag.txt)
 
 <span style="color:lightgreen">Hint1:</span> https://sourceware.org/gdb/onlinedocs/gdb/Python-API.html
 
