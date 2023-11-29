@@ -155,11 +155,11 @@ The malware first traverses all directories, encrypting files with extensions su
 
 <img src="/assets/img/luckbit/pencrypt.jpg">
 
-After encrypting the files, the malware creates a [<span style="color:red"><ins>README_K.log<ins></span>](/assets/img/luckbit/README_K.log) file in each directory. This file contains the ransom note detailing the attack and includes instructions on how to pay the ransom. It modifies the wallpaper by replacing it with an image containing a message about Luckbit along with information from the README_K.log file.
+After encrypting the files, the malware creates a [<span style="color:red"><ins>README_K.log</ins></span>](/assets/img/luckbit/README_K.log) file in each directory. This file contains the ransom note detailing the attack and includes instructions on how to pay the ransom. It modifies the wallpaper by replacing it with an image containing a message about Luckbit along with information from the README_K.log file.
 
 <img src="/assets/img/luckbit/preadme.jpg">
 
-Observing the process activity, it initiates a process with <span style="color:lightgreen">powershell.exe</span> and executes a script in file [<span style="color:red"><ins>tmpF593.tmp.ps1<ins></span>](/assets/img/luckbit/tmp.ps1).
+Observing the process activity, it initiates a process with <span style="color:lightgreen">powershell.exe</span> and executes a script in file [<span style="color:red"><ins>tmpF593.tmp.ps1</ins></span>](/assets/img/luckbit/tmp.ps1).
 
 <img src="/assets/img/luckbit/ps.jpg">
 
