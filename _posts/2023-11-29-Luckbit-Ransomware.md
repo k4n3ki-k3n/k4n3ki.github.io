@@ -157,7 +157,7 @@ The malware first traverses all directories, encrypting files with extensions su
 
 After encrypting the files, the malware creates a <!-- [<span style="color:red"><ins>README_K.log</ins></span>](/assets/img/luckbit/README_K.log) --> README_K.log file in each directory. This file contains the ransom note detailing the attack and includes instructions on how to pay the ransom. It modifies the wallpaper by replacing it with an image containing a message about Luckbit along with information from the README_K.log file.
 
-```txt
+```log
 Urgent Notice - Your Data Has Been Encrypted
 
 Attention,
@@ -189,7 +189,7 @@ ZNH
 
 Observing the process activity, it initiates a process with <span style="color:lightgreen">powershell.exe</span> and executes a script in file <!-- [<span style="color:red"><ins>tmpF593.tmp.ps1</ins></span>](/assets/img/luckbit/tmp.ps1) --> tmpF593.tmp.ps1.
 
-```ps1
+```powershell
 
 $soNJkXUO = Get-Process 3K0JfF4BjXG6mMisOnUXL2mGOOBeDHM7vZK4ILhZbtc -ErrorAction SilentlyContinue
 while ($soNJkXUO) {
