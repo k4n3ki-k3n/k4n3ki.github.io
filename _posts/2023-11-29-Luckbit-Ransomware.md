@@ -155,11 +155,61 @@ The malware first traverses all directories, encrypting files with extensions su
 
 <img src="/assets/img/luckbit/pencrypt.jpg">
 
-After encrypting the files, the malware creates a [<span style="color:red"><ins>README_K.log</ins></span>](/assets/img/luckbit/README_K.log) file in each directory. This file contains the ransom note detailing the attack and includes instructions on how to pay the ransom. It modifies the wallpaper by replacing it with an image containing a message about Luckbit along with information from the README_K.log file.
+After encrypting the files, the malware creates a <!-- [<span style="color:red"><ins>README_K.log</ins></span>](/assets/img/luckbit/README_K.log) --> README_K.log file in each directory. This file contains the ransom note detailing the attack and includes instructions on how to pay the ransom. It modifies the wallpaper by replacing it with an image containing a message about Luckbit along with information from the README_K.log file.
+
+```txt
+Urgent Notice - Your Data Has Been Encrypted
+
+Attention,
+
+We regret to inform you that your computer network has been compromised, and all your valuable data has been encrypted using advanced encryption algorithms. Our team of skilled hackers gained access to your systems through a vulnerability we discovered, granting us full control over your files and databases.
+
+We are writing to you as the sole entity capable of reversing this encryption and restoring your data to its original state. However, we must stress that time is of the essence. In order to initiate the data decryption process, we require a payment of MYR 20 million in BTC equivalent within 7 days. Failure to comply with our demands will result in permanent data loss, as we will securely destroy the decryption key and releasing all your files for public access.
+
+Please understand that we are professionals, and we have taken steps to ensure the anonymity of both parties involved. Attempts to involve law enforcement or other cybersecurity firms will be met with severe consequences, including the public release of your sensitive data. We are aware of the repercussions you may face if certain confidential information falls into the wrong hands.
+
+To proceed with the payment and restore your data, please follow the instructions below:
+
+- Acquire MYR 20 million of BTC equivalent through a reputable cryptocurrency exchange.
+- Send the Bitcoin to the following address: 1LUDkWuaxQnsRyj4VUvAkbYTDodvGo7RjS
+- Once the payment is confirmed, send an email to znhsupport@protonmail[.]com with the subject line: 'Payment Confirmation' and include the Bitcoin transaction ID.
+- Upon receiving your confirmation, we will provide you with the decryption tool and further instructions to restore your data.
+- Please present the following unique ID when contacting us: 0f9962d3ed0f0f5f00dbf61820ff95a593ef49a53625d355f95fcc21584e8808
+- Access the following URL via TOR network: http[:]//luckbit53sdne5yd5vdekadhwnbzjyqlbjkc4g33hs6faphfkvivaeid[.]onion/
+
+We understand the inconvenience and distress this situation may cause you, but we assure you that cooperating with us is your best option for a swift resolution. Remember, time is limited, and any attempts to tamper with or investigate the situation will lead to irreversible consequences.
+
+Do not underestimate the gravity of this situation. We have targeted your organization for a reason, and we possess the capability to carry out our threats. Your cooperation is essential if you want to regain control over your valuable data.
+
+Sincerely,
+ZNH
+```
 
 <img src="/assets/img/luckbit/preadme.jpg">
 
-Observing the process activity, it initiates a process with <span style="color:lightgreen">powershell.exe</span> and executes a script in file [<span style="color:red"><ins>tmpF593.tmp.ps1</ins></span>](/assets/img/luckbit/tmp.ps1).
+Observing the process activity, it initiates a process with <span style="color:lightgreen">powershell.exe</span> and executes a script in file <!-- [<span style="color:red"><ins>tmpF593.tmp.ps1</ins></span>](/assets/img/luckbit/tmp.ps1) --> tmpF593.tmp.ps1.
+
+```ps1
+
+$soNJkXUO = Get-Process 3K0JfF4BjXG6mMisOnUXL2mGOOBeDHM7vZK4ILhZbtc -ErrorAction SilentlyContinue
+while ($soNJkXUO) {
+  if (!$soNJkXUO.HasExited) {
+	    write-host 'DtwpkcPr';
+  } else {
+      if (Test-Path -Path 'C:\ProgramData\Windows\System32\3K0JfF4BjXG6mMisOnUXL2mGOOBeDHM7vZK4ILhZbtc.exe') {
+        Add-Type -AssemblyName Microsoft.VisualBasic;
+        [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile('C:\ProgramData\Windows\System32\3K0JfF4BjXG6mMisOnUXL2mGOOBeDHM7vZK4ILhZbtc.exe','OnlyErrorDialogs','SendToRecycleBin');
+        Remove-Item $script:MyInvocation.MyCommand.Path -Force
+        break
+      } else {
+        Remove-Item $script:MyInvocation.MyCommand.Path -Force
+        break
+      }
+  }
+}
+Remove-Item $script:MyInvocation.MyCommand.Path -Force
+Remove -Variable soNJkXUO
+```
 
 <img src="/assets/img/luckbit/ps.jpg">
 
