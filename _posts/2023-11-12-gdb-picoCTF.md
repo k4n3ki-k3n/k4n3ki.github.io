@@ -17,7 +17,7 @@ tags: [gdb, angr, picoCTF, python]
 
 
 
-## <span style="color:red">Tools Used :</span>
+## <span style="color:red">Tools Used</span>
 - python
 - gdb-pwndbg
 - angr
