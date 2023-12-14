@@ -124,6 +124,8 @@ These strings are passed to function as arguments where it starts a new process 
 
 <img src="/assets/img/luckbit/stringprocess.jpg">
 
+## <span style="color:red">[De4dot](https://github.com/de4dot/de4dot)</span>
+
 To decrypt the string, use the <span style="color:red">De4dot</span> tool, which is a .NET deobfuscator and unpacker. Use the following command for string decryption:
 
 > de4dot.exe 206e71939ac01a149d2fcec629758524a2597bd7d07e6bb3fb01d0f4e28f5b8e.exe --strtyp emulate --strtok "7FFC0B98-1A44-4DFA-9214-E12B36C3AD43.BF435CFA-E253-40F2-84CD-A545B5F84149::" --strtok 0x06000024 --strtok 0x06000011 -o test1.exe
