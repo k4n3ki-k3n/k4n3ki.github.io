@@ -1,7 +1,7 @@
 ---
 title : Basic Binary Analysis in Linux
 author : k4n3ki
-date : 2024-05-27 1:00:00 +530
+date : 2024-05-27 1:00:00
 categories: [Binary Analysis]
 tags: [Reversing, readelf, objdump, gdb]
 ---
