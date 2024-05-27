@@ -11,7 +11,7 @@ tags: [Reversing, readelf, objdump, gdb]
 This blog covers the concepts and exercises from Chapter 5 of the book, focusing on basic binary analysis in Linux. The author uses a CTF challenge to illustrate the tools and techniques used in binary analysis.
 
 ## <span style = "color:red;">**Content**</span>
-- [Challenge Description](#challenge-description)
+- [Challenge Description](#challenge)
 - [Level 2](#level-2)
 - [Level 3](#level-3)
 - [Level 4](#level-4)
