@@ -179,7 +179,7 @@ The remaining code in the <span style = "color:lightgreen;">*.text*</span> secti
 
 We can try changing the argument passed to __libc_start_main from 0x400500 to 0x400620, ensuring that the loading and XORing instructions get executed.
 
-<img src="/assets/img/chapter5/5gdbcheck.png">
+<img src="/assets/img/chapter5/5gdbC.png">
 
 The flag above is invalid. Upon closer inspection, both the actual address passed to __libc_start_main and the key printed are the same value, 0x400500. The key is retrieved from the instruction `40053d: 48 c7 c7 00 05 40 00 mov rdi,0x400500`. What if we edit these bytes to use the new function address (0x400620) instead?
 
