@@ -6,7 +6,7 @@ categories: [Binary Analysis]
 tags: [Reversing, readelf, objdump, gdb]
 ---
 
-[Practical Binary Analysis](https://practicalbinaryanalysis.com/) Book autholightgreen by Dennis Andriesse covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution.
+[Practical Binary Analysis](https://practicalbinaryanalysis.com/) Book authored by Dennis Andriesse covers all major binary analysis topics in an accessible way, from binary formats, disassembly, and basic analysis to advanced techniques like binary instrumentation, taint analysis, and symbolic execution.
 
 This blog covers the concepts and exercises from Chapter 5 of the book, focusing on basic binary analysis in Linux. The author uses a CTF challenge to illustrate the tools and techniques used in binary analysis.
 
