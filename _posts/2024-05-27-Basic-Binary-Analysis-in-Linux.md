@@ -1,5 +1,5 @@
 ---
-title : Basic Binary Analysis in Linux
+title : CTF Challenge Walkthrough from Practical Binary Analysis
 author : k4n3ki
 date : 2024-05-26 1:00:00 +530
 categories: [Binary Analysis]
@@ -47,7 +47,7 @@ Running the program occasionally produces varying outputs, displaying random byt
 
 <img src="/assets/img/chapter5/2check.png">
 
-Utilize <span style = "color:lightgreen;">*ltrace*</span> to trace the library function calls, revealing that it calls rand to generate a random number and put to print a byte.
+Utilize <span style = "color:lightgreen;">*ltrace*</span> to trace the library function calls, revealing that it calls rand to generate a random number and puts to print a byte.
 
 <img src="/assets/img/chapter5/2ltrace.png">
 
